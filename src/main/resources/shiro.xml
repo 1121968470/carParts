@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd"
+       default-lazy-init="true">
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <bean id="credentialsMatcher" class="com.carmold.core.shiro.CustomCredentialsMatcher"/>
+
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="cloudblank"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="864000"/>
+    </bean>
+
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="rememberMeCookie"/>
+        <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
+    </bean>
+
+    <!-- user Realm Settings -->
+    <bean id="userRealm" class="com.carmold.core.shiro.realm.UserRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="cachingEnabled" value="true"/>
+        <property name="authenticationCachingEnabled" value="true"/>
+        <property name="authorizationCachingEnabled" value="false"/>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+        <property name="sessionManager" ref="webSessionManager"/>
+        <property name="rememberMeManager" ref="rememberMeManager"/>
+    </bean>
+
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg name="name" value="SCHOOL.COOKIE"/>
+        <property name="path" value="/"/>
+    </bean>
+
+    <bean id="webSessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- <property name="sessionDAO" ref="shiroRedisSessionDao" /> -->
+        <property name="deleteInvalidSessions" value="true"/>
+        <property name="globalSessionTimeout" value="1800000"/>
+        <property name="sessionIdUrlRewritingEnabled" value="false"/>
+        <property name="sessionValidationSchedulerEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="simpleCookie"/>
+    </bean>
+    <!-- <bean id="shiroRedisSessionDao" class="com.xrj.business.core.shiro.ShiroRedisSessionDao" /> -->
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="filters">
+            <map>
+                <entry key="cross">
+                    <bean class="com.carmold.core.shiro.filter.CrossFilter">
+                        <property name="hosts">
+                            <list>
+                                <value>localhost</value>
+                                <value>192.168.100.204</value>
+                                <value>42.233.104.232</value>
+                                <value>172.16.3.11</value>
+                                <value>127.0.0.1</value>
+                                <value>xrjiot.com</value>
+                                <value>xrjcloud.com</value>
+                                <value>solrcn.com</value>
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="authc">
+                    <bean class="com.carmold.core.shiro.filter.FormAuthenticationFilter"/>
+                </entry>
+                <entry key="signer">
+                    <bean class="com.carmold.core.shiro.filter.SignAuthorizationFilter"/>
+                </entry>
+                <entry key="token">
+                    <bean class="com.carmold.core.shiro.filter.TokenAuthorizationFilter"/>
+                </entry>
+            </map>
+        </property>
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/console"/>
+        <property name="unauthorizedUrl" value="/error"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /api/**/common/** = cross,anon
+                /api/**/office/** = cross,anon
+                /api/**/login/** = cross,token
+                /** = cross,token
+                /**/api/**/= cross,authc
+                /**/web/**/= cross,authc
+
+            </value>
+        </property>
+    </bean>
+
+</beans>

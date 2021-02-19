@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carmold.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.carmold.bean.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="power" jdbcType="VARCHAR" property="power" />
+    <result column="login_status" jdbcType="VARCHAR" property="loginStatus" />
+    <result column="power_name" jdbcType="VARCHAR" property="powerName" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="update_state" jdbcType="VARCHAR" property="updateState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, `password`, `power`, login_status, power_name, user_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.carmold.bean.User" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.carmold.bean.User">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.User" useGeneratedKeys="true">
+    insert into user (user_id, `password`, `power`,
+      login_status, power_name, user_name,
+      update_state)
+    values (#{userId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR},
+      #{loginStatus,jdbcType=VARCHAR}, #{powerName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+      #{updateState,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.User" useGeneratedKeys="true">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="power != null">
+        `power`,
+      </if>
+      <if test="loginStatus != null">
+        login_status,
+      </if>
+      <if test="powerName != null">
+        power_name,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="updateState != null">
+        update_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null">
+        #{loginStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="powerName != null">
+        #{powerName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateState != null">
+        #{updateState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carmold.bean.User">
+    update user
+    <set>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        `power` = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null">
+        login_status = #{loginStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="powerName != null">
+        power_name = #{powerName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateState != null">
+        update_state = #{updateState,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carmold.bean.User">
+    update user
+    set `password` = #{password,jdbcType=VARCHAR},
+      `power` = #{power,jdbcType=VARCHAR},
+      login_status = #{loginStatus,jdbcType=VARCHAR},
+      power_name = #{powerName,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      update_state = #{updateState,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <select id="list" parameterType="string"  resultType="com.carmold.bean.User">
+    select * from user
+    <where>
+      <if test="userName != null and userName != ''">
+        <bind name="userName" value="'%' + userName + '%'"/>
+        and user_name like #{userName}
+      </if>
+      <if test="loginStatus != null and loginStatus != ''">
+        <bind name="loginStatus" value="'%' + loginStatus + '%'"/>
+        and login_status like #{loginStatus}
+      </if>
+      and update_state != 'D'
+    </where>
+  </select>
+</mapper>

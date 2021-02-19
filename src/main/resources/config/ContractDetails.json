@@ -1,0 +1,61 @@
+{
+  "RECORDS" : [
+     {
+      "项次" : "item",
+      "客户" : "customer",
+      "合同签订时间" : "contractSigningTime",
+      "机种" : "typeOfMachine",
+      "模具付数" : "mouldPayment",
+      "有无模摊" : "tfModelStall",
+      "模摊比例" : "modelStallRatio",
+      "收款名称" : "beneficiaryName",
+      "收款方式" : "paymentMethod",
+      "模（检）具未税总金额": "totalAmountNotaxMould",
+      "模（检）具总金额" : "totalAmountMould",
+      "除模摊部分-可收" : "moldRemovalAcceptable",
+      "除模摊部分-已收" : "moldRemovalReceived",
+      "模摊部分-可收" : "moldStallAcceptable",
+      "模摊部分-已收" : "moldStallReceived",
+      "未收总金额" : "totalAmountNotReceived",
+      "备注" : "remarks",
+      "量产时间" : "batchTime",
+      "件号":"partNumber",
+      "制品单价":"productsPrice",
+      "模具编号":"dieNumber",
+      "皮纹费": "dermatoglyphPaid",
+
+      "委外-厂商":"outManufacturer",
+      "委外-合同签订时间":"outContractSigningTime",
+      "委外-含税总额":"outTotalTaxIncluded",
+      "委外-已付金额":"outAmountPaid",
+      "委外-未付余额":"outAmountUnpaid",
+      "委外-备注":"outRemarks",
+
+      "设变-客户合同签订时间":"changeContractSigningTime",
+      "设变-件号":"changePartNumber",
+      "设变-设变内容":"changeContent",
+      "设变-含税金额":"changeTaxIncluded",
+      "设变-已收金额":"changeAmountPaid",
+      "设变-未收金额":"changeAmountUnpaid",
+      "设变-备注":"changeRemarks",
+
+      "皮纹-客户合同签订时间":"dermatoglyphContractSigningTime",
+      "皮纹-件号":"dermatoglyphPartNumber",
+      "皮纹-设变内容":"dermatoglyphContent",
+      "皮纹-含税金额":"dermatoglyphTaxIncluded",
+      "皮纹-已收金额":"dermatoglyphAmountPaid",
+      "皮纹-未收金额":"dermatoglyphAmountUnpaid",
+      "皮纹-备注":"dermatoglyphRemarks",
+      "皮纹-厂商":"field1",
+
+      "备用字段2":"field2",
+      "备用字段3":"field3",
+      "备用字段4":"field4",
+      "备用字段5":"field5",
+      "备用字段6":"field6",
+      "备用字段7":"field7",
+      "备用字段8":"field8",
+      "备用字段9":"field9"
+     }
+  ]
+}

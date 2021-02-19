@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carmold.dao.ContractDetailsMapper">
+    <resultMap id="BaseResultMap" type="com.carmold.bean.ContractDetails">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="item" jdbcType="VARCHAR" property="item" />
+        <result column="customer" jdbcType="VARCHAR" property="customer" />
+        <result column="contract_img" jdbcType="VARCHAR" property="contractImg" />
+        <result column="contract_signing_time" jdbcType="VARCHAR" property="contractSigningTime" />
+        <result column="type_of_machine" jdbcType="VARCHAR" property="typeOfMachine" />
+        <result column="mould_payment" jdbcType="VARCHAR" property="mouldPayment" />
+        <result column="tf_model_stall" jdbcType="VARCHAR" property="tfModelStall" />
+        <result column="model_stall_ratio" jdbcType="VARCHAR" property="modelStallRatio" />
+        <result column="beneficiary_name" jdbcType="VARCHAR" property="beneficiaryName" />
+        <result column="payment_method" jdbcType="VARCHAR" property="paymentMethod" />
+        <result column="total_amount_notax_mould" jdbcType="VARCHAR" property="totalAmountNotaxMould" />
+        <result column="total_amount_mould" jdbcType="VARCHAR" property="totalAmountMould" />
+        <result column="mold_removal_acceptable" jdbcType="VARCHAR" property="moldRemovalAcceptable" />
+        <result column="mold_removal_received" jdbcType="VARCHAR" property="moldRemovalReceived" />
+        <result column="mold_stall_acceptable" jdbcType="VARCHAR" property="moldStallAcceptable" />
+        <result column="mold_stall_received" jdbcType="VARCHAR" property="moldStallReceived" />
+        <result column="total_amount_not_received" jdbcType="VARCHAR" property="totalAmountNotReceived" />
+        <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+        <result column="batch_time" jdbcType="VARCHAR" property="batchTime" />
+        <result column="part_number" jdbcType="VARCHAR" property="partNumber" />
+        <result column="products_price" jdbcType="VARCHAR" property="productsPrice" />
+        <result column="die_number" jdbcType="VARCHAR" property="dieNumber" />
+        <result column="dermatoglyph_paid" jdbcType="VARCHAR" property="dermatoglyphPaid" />
+        <result column="out_manufacturer" jdbcType="VARCHAR" property="outManufacturer" />
+        <result column="out_contract_img" jdbcType="VARCHAR" property="outContractImg" />
+        <result column="out_contract_signing_time" jdbcType="VARCHAR" property="outContractSigningTime" />
+        <result column="out_total_tax_included" jdbcType="VARCHAR" property="outTotalTaxIncluded" />
+        <result column="out_amount_paid" jdbcType="VARCHAR" property="outAmountPaid" />
+        <result column="out_amount_unpaid" jdbcType="VARCHAR" property="outAmountUnpaid" />
+        <result column="out_remarks" jdbcType="VARCHAR" property="outRemarks" />
+        <result column="change_contract_img" jdbcType="VARCHAR" property="changeContractImg" />
+        <result column="change_contract_signing_time" jdbcType="VARCHAR" property="changeContractSigningTime" />
+        <result column="change_part_number" jdbcType="VARCHAR" property="changePartNumber" />
+        <result column="change_content" jdbcType="VARCHAR" property="changeContent" />
+        <result column="change_tax_included" jdbcType="VARCHAR" property="changeTaxIncluded" />
+        <result column="change_amount_paid" jdbcType="VARCHAR" property="changeAmountPaid" />
+        <result column="change_amount_unpaid" jdbcType="VARCHAR" property="changeAmountUnpaid" />
+        <result column="change_remarks" jdbcType="VARCHAR" property="changeRemarks" />
+        <result column="dermatoglyph_contract_img" jdbcType="VARCHAR" property="dermatoglyphContractImg" />
+        <result column="dermatoglyph_contract_signing_time" jdbcType="VARCHAR" property="dermatoglyphContractSigningTime" />
+        <result column="dermatoglyph_tax_included" jdbcType="VARCHAR" property="dermatoglyphTaxIncluded" />
+        <result column="dermatoglyph_content" jdbcType="VARCHAR" property="dermatoglyphContent" />
+        <result column="dermatoglyph_part_number" jdbcType="VARCHAR" property="dermatoglyphPartNumber" />
+        <result column="dermatoglyph_amount_paid" jdbcType="VARCHAR" property="dermatoglyphAmountPaid" />
+        <result column="dermatoglyph_amount_unpaid" jdbcType="VARCHAR" property="dermatoglyphAmountUnpaid" />
+        <result column="dermatoglyph_remarks" jdbcType="VARCHAR" property="dermatoglyphRemarks" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="update_state" jdbcType="VARCHAR" property="updateState" />
+        <result column="operator" jdbcType="VARCHAR" property="operator" />
+        <result column="field1" jdbcType="VARCHAR" property="field1" />
+        <result column="field2" jdbcType="VARCHAR" property="field2" />
+        <result column="field3" jdbcType="VARCHAR" property="field3" />
+        <result column="field4" jdbcType="VARCHAR" property="field4" />
+        <result column="field5" jdbcType="VARCHAR" property="field5" />
+        <result column="field6" jdbcType="VARCHAR" property="field6" />
+        <result column="field7" jdbcType="VARCHAR" property="field7" />
+        <result column="field8" jdbcType="VARCHAR" property="field8" />
+        <result column="field9" jdbcType="VARCHAR" property="field9" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, `year`, item, customer, contract_img, contract_signing_time, type_of_machine,
+    mould_payment, tf_model_stall, model_stall_ratio, beneficiary_name, payment_method,
+    total_amount_notax_mould, total_amount_mould, mold_removal_acceptable, mold_removal_received,
+    mold_stall_acceptable, mold_stall_received, total_amount_not_received, remarks, batch_time,
+    part_number, products_price, die_number, dermatoglyph_paid, out_manufacturer, out_contract_img,
+    out_contract_signing_time, out_total_tax_included, out_amount_paid, out_amount_unpaid,
+    out_remarks, change_contract_img, change_contract_signing_time, change_part_number,
+    change_content, change_tax_included, change_amount_paid, change_amount_unpaid, change_remarks,
+    dermatoglyph_contract_img, dermatoglyph_contract_signing_time, dermatoglyph_tax_included,
+    dermatoglyph_content, dermatoglyph_part_number, dermatoglyph_amount_paid, dermatoglyph_amount_unpaid,
+    dermatoglyph_remarks, update_time, update_state, `operator`, field1, field2, field3,
+    field4, field5, field6, field7, field8, field9
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from mold_contract_details
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from mold_contract_details
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.ContractDetails" useGeneratedKeys="true">
+    insert into mold_contract_details (`year`, item, customer,
+      contract_img, contract_signing_time, type_of_machine,
+      mould_payment, tf_model_stall, model_stall_ratio,
+      beneficiary_name, payment_method, total_amount_notax_mould,
+      total_amount_mould, mold_removal_acceptable,
+      mold_removal_received, mold_stall_acceptable,
+      mold_stall_received, total_amount_not_received,
+      remarks, batch_time, part_number,
+      products_price, die_number, dermatoglyph_paid,
+      out_manufacturer, out_contract_img, out_contract_signing_time,
+      out_total_tax_included, out_amount_paid, out_amount_unpaid,
+      out_remarks, change_contract_img, change_contract_signing_time,
+      change_part_number, change_content, change_tax_included,
+      change_amount_paid, change_amount_unpaid, change_remarks,
+      dermatoglyph_contract_img, dermatoglyph_contract_signing_time,
+      dermatoglyph_tax_included, dermatoglyph_content,
+      dermatoglyph_part_number, dermatoglyph_amount_paid,
+      dermatoglyph_amount_unpaid, dermatoglyph_remarks,
+      update_time, update_state, `operator`,
+      field1, field2, field3,
+      field4, field5, field6,
+      field7, field8, field9
+      )
+    values (#{year,jdbcType=VARCHAR}, #{item,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR},
+      #{contractImg,jdbcType=VARCHAR}, #{contractSigningTime,jdbcType=VARCHAR}, #{typeOfMachine,jdbcType=VARCHAR},
+      #{mouldPayment,jdbcType=VARCHAR}, #{tfModelStall,jdbcType=VARCHAR}, #{modelStallRatio,jdbcType=VARCHAR},
+      #{beneficiaryName,jdbcType=VARCHAR}, #{paymentMethod,jdbcType=VARCHAR}, #{totalAmountNotaxMould,jdbcType=VARCHAR},
+      #{totalAmountMould,jdbcType=VARCHAR}, #{moldRemovalAcceptable,jdbcType=VARCHAR},
+      #{moldRemovalReceived,jdbcType=VARCHAR}, #{moldStallAcceptable,jdbcType=VARCHAR},
+      #{moldStallReceived,jdbcType=VARCHAR}, #{totalAmountNotReceived,jdbcType=VARCHAR},
+      #{remarks,jdbcType=VARCHAR}, #{batchTime,jdbcType=VARCHAR}, #{partNumber,jdbcType=VARCHAR},
+      #{productsPrice,jdbcType=VARCHAR}, #{dieNumber,jdbcType=VARCHAR}, #{dermatoglyphPaid,jdbcType=VARCHAR},
+      #{outManufacturer,jdbcType=VARCHAR}, #{outContractImg,jdbcType=VARCHAR}, #{outContractSigningTime,jdbcType=VARCHAR},
+      #{outTotalTaxIncluded,jdbcType=VARCHAR}, #{outAmountPaid,jdbcType=VARCHAR}, #{outAmountUnpaid,jdbcType=VARCHAR},
+      #{outRemarks,jdbcType=VARCHAR}, #{changeContractImg,jdbcType=VARCHAR}, #{changeContractSigningTime,jdbcType=VARCHAR},
+      #{changePartNumber,jdbcType=VARCHAR}, #{changeContent,jdbcType=VARCHAR}, #{changeTaxIncluded,jdbcType=VARCHAR},
+      #{changeAmountPaid,jdbcType=VARCHAR}, #{changeAmountUnpaid,jdbcType=VARCHAR}, #{changeRemarks,jdbcType=VARCHAR},
+      #{dermatoglyphContractImg,jdbcType=VARCHAR}, #{dermatoglyphContractSigningTime,jdbcType=VARCHAR},
+      #{dermatoglyphTaxIncluded,jdbcType=VARCHAR}, #{dermatoglyphContent,jdbcType=VARCHAR},
+      #{dermatoglyphPartNumber,jdbcType=VARCHAR}, #{dermatoglyphAmountPaid,jdbcType=VARCHAR},
+      #{dermatoglyphAmountUnpaid,jdbcType=VARCHAR}, #{dermatoglyphRemarks,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateState,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR},
+      #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR},
+      #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR},
+      #{field7,jdbcType=VARCHAR}, #{field8,jdbcType=VARCHAR}, #{field9,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.ContractDetails" useGeneratedKeys="true">
+        insert into mold_contract_details
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="item != null">
+                item,
+            </if>
+            <if test="customer != null">
+                customer,
+            </if>
+            <if test="contractImg != null">
+                contract_img,
+            </if>
+            <if test="contractSigningTime != null">
+                contract_signing_time,
+            </if>
+            <if test="typeOfMachine != null">
+                type_of_machine,
+            </if>
+            <if test="mouldPayment != null">
+                mould_payment,
+            </if>
+            <if test="tfModelStall != null">
+                tf_model_stall,
+            </if>
+            <if test="modelStallRatio != null">
+                model_stall_ratio,
+            </if>
+            <if test="beneficiaryName != null">
+                beneficiary_name,
+            </if>
+            <if test="paymentMethod != null">
+                payment_method,
+            </if>
+            <if test="totalAmountNotaxMould != null">
+                total_amount_notax_mould,
+            </if>
+            <if test="totalAmountMould != null">
+                total_amount_mould,
+            </if>
+            <if test="moldRemovalAcceptable != null">
+                mold_removal_acceptable,
+            </if>
+            <if test="moldRemovalReceived != null">
+                mold_removal_received,
+            </if>
+            <if test="moldStallAcceptable != null">
+                mold_stall_acceptable,
+            </if>
+            <if test="moldStallReceived != null">
+                mold_stall_received,
+            </if>
+            <if test="totalAmountNotReceived != null">
+                total_amount_not_received,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="batchTime != null">
+                batch_time,
+            </if>
+            <if test="partNumber != null">
+                part_number,
+            </if>
+            <if test="productsPrice != null">
+                products_price,
+            </if>
+            <if test="dieNumber != null">
+                die_number,
+            </if>
+            <if test="dermatoglyphPaid != null">
+                dermatoglyph_paid,
+            </if>
+            <if test="outManufacturer != null">
+                out_manufacturer,
+            </if>
+            <if test="outContractImg != null">
+                out_contract_img,
+            </if>
+            <if test="outContractSigningTime != null">
+                out_contract_signing_time,
+            </if>
+            <if test="outTotalTaxIncluded != null">
+                out_total_tax_included,
+            </if>
+            <if test="outAmountPaid != null">
+                out_amount_paid,
+            </if>
+            <if test="outAmountUnpaid != null">
+                out_amount_unpaid,
+            </if>
+            <if test="outRemarks != null">
+                out_remarks,
+            </if>
+            <if test="changeContractImg != null">
+                change_contract_img,
+            </if>
+            <if test="changeContractSigningTime != null">
+                change_contract_signing_time,
+            </if>
+            <if test="changePartNumber != null">
+                change_part_number,
+            </if>
+            <if test="changeContent != null">
+                change_content,
+            </if>
+            <if test="changeTaxIncluded != null">
+                change_tax_included,
+            </if>
+            <if test="changeAmountPaid != null">
+                change_amount_paid,
+            </if>
+            <if test="changeAmountUnpaid != null">
+                change_amount_unpaid,
+            </if>
+            <if test="changeRemarks != null">
+                change_remarks,
+            </if>
+            <if test="dermatoglyphContractImg != null">
+                dermatoglyph_contract_img,
+            </if>
+            <if test="dermatoglyphContractSigningTime != null">
+                dermatoglyph_contract_signing_time,
+            </if>
+            <if test="dermatoglyphTaxIncluded != null">
+                dermatoglyph_tax_included,
+            </if>
+            <if test="dermatoglyphContent != null">
+                dermatoglyph_content,
+            </if>
+            <if test="dermatoglyphPartNumber != null">
+                dermatoglyph_part_number,
+            </if>
+            <if test="dermatoglyphAmountPaid != null">
+                dermatoglyph_amount_paid,
+            </if>
+            <if test="dermatoglyphAmountUnpaid != null">
+                dermatoglyph_amount_unpaid,
+            </if>
+            <if test="dermatoglyphRemarks != null">
+                dermatoglyph_remarks,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateState != null">
+                update_state,
+            </if>
+            <if test="operator != null">
+                `operator`,
+            </if>
+            <if test="field1 != null">
+                field1,
+            </if>
+            <if test="field2 != null">
+                field2,
+            </if>
+            <if test="field3 != null">
+                field3,
+            </if>
+            <if test="field4 != null">
+                field4,
+            </if>
+            <if test="field5 != null">
+                field5,
+            </if>
+            <if test="field6 != null">
+                field6,
+            </if>
+            <if test="field7 != null">
+                field7,
+            </if>
+            <if test="field8 != null">
+                field8,
+            </if>
+            <if test="field9 != null">
+                field9,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="year != null">
+                #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="item != null">
+                #{item,jdbcType=VARCHAR},
+            </if>
+            <if test="customer != null">
+                #{customer,jdbcType=VARCHAR},
+            </if>
+            <if test="contractImg != null">
+                #{contractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="contractSigningTime != null">
+                #{contractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="typeOfMachine != null">
+                #{typeOfMachine,jdbcType=VARCHAR},
+            </if>
+            <if test="mouldPayment != null">
+                #{mouldPayment,jdbcType=VARCHAR},
+            </if>
+            <if test="tfModelStall != null">
+                #{tfModelStall,jdbcType=VARCHAR},
+            </if>
+            <if test="modelStallRatio != null">
+                #{modelStallRatio,jdbcType=VARCHAR},
+            </if>
+            <if test="beneficiaryName != null">
+                #{beneficiaryName,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentMethod != null">
+                #{paymentMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountNotaxMould != null">
+                #{totalAmountNotaxMould,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountMould != null">
+                #{totalAmountMould,jdbcType=VARCHAR},
+            </if>
+            <if test="moldRemovalAcceptable != null">
+                #{moldRemovalAcceptable,jdbcType=VARCHAR},
+            </if>
+            <if test="moldRemovalReceived != null">
+                #{moldRemovalReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="moldStallAcceptable != null">
+                #{moldStallAcceptable,jdbcType=VARCHAR},
+            </if>
+            <if test="moldStallReceived != null">
+                #{moldStallReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountNotReceived != null">
+                #{totalAmountNotReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="batchTime != null">
+                #{batchTime,jdbcType=VARCHAR},
+            </if>
+            <if test="partNumber != null">
+                #{partNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="productsPrice != null">
+                #{productsPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="dieNumber != null">
+                #{dieNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphPaid != null">
+                #{dermatoglyphPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outManufacturer != null">
+                #{outManufacturer,jdbcType=VARCHAR},
+            </if>
+            <if test="outContractImg != null">
+                #{outContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="outContractSigningTime != null">
+                #{outContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="outTotalTaxIncluded != null">
+                #{outTotalTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="outAmountPaid != null">
+                #{outAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outAmountUnpaid != null">
+                #{outAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outRemarks != null">
+                #{outRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContractImg != null">
+                #{changeContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContractSigningTime != null">
+                #{changeContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="changePartNumber != null">
+                #{changePartNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContent != null">
+                #{changeContent,jdbcType=VARCHAR},
+            </if>
+            <if test="changeTaxIncluded != null">
+                #{changeTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="changeAmountPaid != null">
+                #{changeAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="changeAmountUnpaid != null">
+                #{changeAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="changeRemarks != null">
+                #{changeRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContractImg != null">
+                #{dermatoglyphContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContractSigningTime != null">
+                #{dermatoglyphContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphTaxIncluded != null">
+                #{dermatoglyphTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContent != null">
+                #{dermatoglyphContent,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphPartNumber != null">
+                #{dermatoglyphPartNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphAmountPaid != null">
+                #{dermatoglyphAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphAmountUnpaid != null">
+                #{dermatoglyphAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphRemarks != null">
+                #{dermatoglyphRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateState != null">
+                #{updateState,jdbcType=VARCHAR},
+            </if>
+            <if test="operator != null">
+                #{operator,jdbcType=VARCHAR},
+            </if>
+            <if test="field1 != null">
+                #{field1,jdbcType=VARCHAR},
+            </if>
+            <if test="field2 != null">
+                #{field2,jdbcType=VARCHAR},
+            </if>
+            <if test="field3 != null">
+                #{field3,jdbcType=VARCHAR},
+            </if>
+            <if test="field4 != null">
+                #{field4,jdbcType=VARCHAR},
+            </if>
+            <if test="field5 != null">
+                #{field5,jdbcType=VARCHAR},
+            </if>
+            <if test="field6 != null">
+                #{field6,jdbcType=VARCHAR},
+            </if>
+            <if test="field7 != null">
+                #{field7,jdbcType=VARCHAR},
+            </if>
+            <if test="field8 != null">
+                #{field8,jdbcType=VARCHAR},
+            </if>
+            <if test="field9 != null">
+                #{field9,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.carmold.bean.ContractDetails">
+        update mold_contract_details
+        <set>
+            <if test="year != null">
+                `year` = #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="item != null">
+                item = #{item,jdbcType=VARCHAR},
+            </if>
+            <if test="customer != null">
+                customer = #{customer,jdbcType=VARCHAR},
+            </if>
+            <if test="contractImg != null">
+                contract_img = #{contractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="contractSigningTime != null">
+                contract_signing_time = #{contractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="typeOfMachine != null">
+                type_of_machine = #{typeOfMachine,jdbcType=VARCHAR},
+            </if>
+            <if test="mouldPayment != null">
+                mould_payment = #{mouldPayment,jdbcType=VARCHAR},
+            </if>
+            <if test="tfModelStall != null">
+                tf_model_stall = #{tfModelStall,jdbcType=VARCHAR},
+            </if>
+            <if test="modelStallRatio != null">
+                model_stall_ratio = #{modelStallRatio,jdbcType=VARCHAR},
+            </if>
+            <if test="beneficiaryName != null">
+                beneficiary_name = #{beneficiaryName,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentMethod != null">
+                payment_method = #{paymentMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountNotaxMould != null">
+                total_amount_notax_mould = #{totalAmountNotaxMould,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountMould != null">
+                total_amount_mould = #{totalAmountMould,jdbcType=VARCHAR},
+            </if>
+            <if test="moldRemovalAcceptable != null">
+                mold_removal_acceptable = #{moldRemovalAcceptable,jdbcType=VARCHAR},
+            </if>
+            <if test="moldRemovalReceived != null">
+                mold_removal_received = #{moldRemovalReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="moldStallAcceptable != null">
+                mold_stall_acceptable = #{moldStallAcceptable,jdbcType=VARCHAR},
+            </if>
+            <if test="moldStallReceived != null">
+                mold_stall_received = #{moldStallReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="totalAmountNotReceived != null">
+                total_amount_not_received = #{totalAmountNotReceived,jdbcType=VARCHAR},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="batchTime != null">
+                batch_time = #{batchTime,jdbcType=VARCHAR},
+            </if>
+            <if test="partNumber != null">
+                part_number = #{partNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="productsPrice != null">
+                products_price = #{productsPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="dieNumber != null">
+                die_number = #{dieNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphPaid != null">
+                dermatoglyph_paid = #{dermatoglyphPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outManufacturer != null">
+                out_manufacturer = #{outManufacturer,jdbcType=VARCHAR},
+            </if>
+            <if test="outContractImg != null">
+                out_contract_img = #{outContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="outContractSigningTime != null">
+                out_contract_signing_time = #{outContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="outTotalTaxIncluded != null">
+                out_total_tax_included = #{outTotalTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="outAmountPaid != null">
+                out_amount_paid = #{outAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outAmountUnpaid != null">
+                out_amount_unpaid = #{outAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="outRemarks != null">
+                out_remarks = #{outRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContractImg != null">
+                change_contract_img = #{changeContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContractSigningTime != null">
+                change_contract_signing_time = #{changeContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="changePartNumber != null">
+                change_part_number = #{changePartNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="changeContent != null">
+                change_content = #{changeContent,jdbcType=VARCHAR},
+            </if>
+            <if test="changeTaxIncluded != null">
+                change_tax_included = #{changeTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="changeAmountPaid != null">
+                change_amount_paid = #{changeAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="changeAmountUnpaid != null">
+                change_amount_unpaid = #{changeAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="changeRemarks != null">
+                change_remarks = #{changeRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContractImg != null">
+                dermatoglyph_contract_img = #{dermatoglyphContractImg,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContractSigningTime != null">
+                dermatoglyph_contract_signing_time = #{dermatoglyphContractSigningTime,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphTaxIncluded != null">
+                dermatoglyph_tax_included = #{dermatoglyphTaxIncluded,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphContent != null">
+                dermatoglyph_content = #{dermatoglyphContent,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphPartNumber != null">
+                dermatoglyph_part_number = #{dermatoglyphPartNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphAmountPaid != null">
+                dermatoglyph_amount_paid = #{dermatoglyphAmountPaid,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphAmountUnpaid != null">
+                dermatoglyph_amount_unpaid = #{dermatoglyphAmountUnpaid,jdbcType=VARCHAR},
+            </if>
+            <if test="dermatoglyphRemarks != null">
+                dermatoglyph_remarks = #{dermatoglyphRemarks,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateState != null">
+                update_state = #{updateState,jdbcType=VARCHAR},
+            </if>
+            <if test="operator != null">
+                `operator` = #{operator,jdbcType=VARCHAR},
+            </if>
+            <if test="field1 != null">
+                field1 = #{field1,jdbcType=VARCHAR},
+            </if>
+            <if test="field2 != null">
+                field2 = #{field2,jdbcType=VARCHAR},
+            </if>
+            <if test="field3 != null">
+                field3 = #{field3,jdbcType=VARCHAR},
+            </if>
+            <if test="field4 != null">
+                field4 = #{field4,jdbcType=VARCHAR},
+            </if>
+            <if test="field5 != null">
+                field5 = #{field5,jdbcType=VARCHAR},
+            </if>
+            <if test="field6 != null">
+                field6 = #{field6,jdbcType=VARCHAR},
+            </if>
+            <if test="field7 != null">
+                field7 = #{field7,jdbcType=VARCHAR},
+            </if>
+            <if test="field8 != null">
+                field8 = #{field8,jdbcType=VARCHAR},
+            </if>
+            <if test="field9 != null">
+                field9 = #{field9,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.carmold.bean.ContractDetails">
+    update mold_contract_details
+    set `year` = #{year,jdbcType=VARCHAR},
+      item = #{item,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      contract_img = #{contractImg,jdbcType=VARCHAR},
+      contract_signing_time = #{contractSigningTime,jdbcType=VARCHAR},
+      type_of_machine = #{typeOfMachine,jdbcType=VARCHAR},
+      mould_payment = #{mouldPayment,jdbcType=VARCHAR},
+      tf_model_stall = #{tfModelStall,jdbcType=VARCHAR},
+      model_stall_ratio = #{modelStallRatio,jdbcType=VARCHAR},
+      beneficiary_name = #{beneficiaryName,jdbcType=VARCHAR},
+      payment_method = #{paymentMethod,jdbcType=VARCHAR},
+      total_amount_notax_mould = #{totalAmountNotaxMould,jdbcType=VARCHAR},
+      total_amount_mould = #{totalAmountMould,jdbcType=VARCHAR},
+      mold_removal_acceptable = #{moldRemovalAcceptable,jdbcType=VARCHAR},
+      mold_removal_received = #{moldRemovalReceived,jdbcType=VARCHAR},
+      mold_stall_acceptable = #{moldStallAcceptable,jdbcType=VARCHAR},
+      mold_stall_received = #{moldStallReceived,jdbcType=VARCHAR},
+      total_amount_not_received = #{totalAmountNotReceived,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      batch_time = #{batchTime,jdbcType=VARCHAR},
+      part_number = #{partNumber,jdbcType=VARCHAR},
+      products_price = #{productsPrice,jdbcType=VARCHAR},
+      die_number = #{dieNumber,jdbcType=VARCHAR},
+      dermatoglyph_paid = #{dermatoglyphPaid,jdbcType=VARCHAR},
+      out_manufacturer = #{outManufacturer,jdbcType=VARCHAR},
+      out_contract_img = #{outContractImg,jdbcType=VARCHAR},
+      out_contract_signing_time = #{outContractSigningTime,jdbcType=VARCHAR},
+      out_total_tax_included = #{outTotalTaxIncluded,jdbcType=VARCHAR},
+      out_amount_paid = #{outAmountPaid,jdbcType=VARCHAR},
+      out_amount_unpaid = #{outAmountUnpaid,jdbcType=VARCHAR},
+      out_remarks = #{outRemarks,jdbcType=VARCHAR},
+      change_contract_img = #{changeContractImg,jdbcType=VARCHAR},
+      change_contract_signing_time = #{changeContractSigningTime,jdbcType=VARCHAR},
+      change_part_number = #{changePartNumber,jdbcType=VARCHAR},
+      change_content = #{changeContent,jdbcType=VARCHAR},
+      change_tax_included = #{changeTaxIncluded,jdbcType=VARCHAR},
+      change_amount_paid = #{changeAmountPaid,jdbcType=VARCHAR},
+      change_amount_unpaid = #{changeAmountUnpaid,jdbcType=VARCHAR},
+      change_remarks = #{changeRemarks,jdbcType=VARCHAR},
+      dermatoglyph_contract_img = #{dermatoglyphContractImg,jdbcType=VARCHAR},
+      dermatoglyph_contract_signing_time = #{dermatoglyphContractSigningTime,jdbcType=VARCHAR},
+      dermatoglyph_tax_included = #{dermatoglyphTaxIncluded,jdbcType=VARCHAR},
+      dermatoglyph_content = #{dermatoglyphContent,jdbcType=VARCHAR},
+      dermatoglyph_part_number = #{dermatoglyphPartNumber,jdbcType=VARCHAR},
+      dermatoglyph_amount_paid = #{dermatoglyphAmountPaid,jdbcType=VARCHAR},
+      dermatoglyph_amount_unpaid = #{dermatoglyphAmountUnpaid,jdbcType=VARCHAR},
+      dermatoglyph_remarks = #{dermatoglyphRemarks,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_state = #{updateState,jdbcType=VARCHAR},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      field1 = #{field1,jdbcType=VARCHAR},
+      field2 = #{field2,jdbcType=VARCHAR},
+      field3 = #{field3,jdbcType=VARCHAR},
+      field4 = #{field4,jdbcType=VARCHAR},
+      field5 = #{field5,jdbcType=VARCHAR},
+      field6 = #{field6,jdbcType=VARCHAR},
+      field7 = #{field7,jdbcType=VARCHAR},
+      field8 = #{field8,jdbcType=VARCHAR},
+      field9 = #{field9,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="list" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select * from mold_contract_details
+        <where>
+            <if test="year != null and year != ''">
+                <bind name="year" value="'%' + year + '%'"/>
+                and year like #{year}
+            </if>
+            <if test="typeOfMachine != null and typeOfMachine != ''">
+                <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+                and type_of_machine like #{typeOfMachine}
+            </if>
+            <if test="partNumber != null and partNumber != ''">
+                <bind name="partNumber" value="'%' + partNumber + '%'"/>
+                and part_number like #{partNumber}
+            </if>
+            <if test="customer != null and customer != ''">
+                <bind name="customer" value="'%' + customer + '%'"/>
+                and customer like #{customer}
+            </if>
+            <if test="contractSigningTime != null and contractSigningTime != ''">
+                <bind name="contractSigningTime" value="'%' + contractSigningTime + '%'"/>
+                and contract_signing_time like #{contractSigningTime}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                <bind name="remarks" value="'%' + remarks + '%'"/>
+                and remarks like #{remarks}
+            </if>
+            and update_state != 'D'
+        </where>
+        order by `year`, customer, type_of_machine, update_time desc
+    </select>
+    <select id="listTotal" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+            sum(total_amount_mould) total_amount_mould,
+            sum(mold_removal_acceptable) mold_removal_acceptable,
+            sum(mold_removal_received) mold_removal_received,
+            sum(mold_stall_acceptable) mold_stall_acceptable,
+            sum(mold_stall_received) mold_stall_received,
+            sum(total_amount_not_received) total_amount_not_received,
+            sum(out_total_tax_included) out_total_tax_included,
+            sum(out_amount_paid) out_amount_paid,
+            sum(out_amount_unpaid) out_amount_unpaid,
+            sum(change_tax_included) change_tax_included,
+            sum(change_amount_paid) change_amount_paid,
+            sum(change_amount_unpaid) change_amount_unpaid,
+            sum(dermatoglyph_tax_included) dermatoglyph_tax_included,
+            sum(dermatoglyph_amount_paid) dermatoglyph_amount_paid,
+            sum(dermatoglyph_amount_unpaid) dermatoglyph_amount_unpaid
+        from mold_contract_details
+        <where>
+            <if test="year != null and year != ''">
+                <bind name="year" value="'%' + year + '%'"/>
+                and year like #{year}
+            </if>
+            <if test="typeOfMachine != null and typeOfMachine != ''">
+                <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+                and type_of_machine like #{typeOfMachine}
+            </if>
+            <if test="partNumber != null and partNumber != ''">
+                <bind name="partNumber" value="'%' + partNumber + '%'"/>
+                and part_number like #{partNumber}
+            </if>
+            <if test="customer != null and customer != ''">
+                <bind name="customer" value="'%' + customer + '%'"/>
+                and customer like #{customer}
+            </if>
+            <if test="contractSigningTime != null and contractSigningTime != ''">
+                <bind name="contractSigningTime" value="'%' + contractSigningTime + '%'"/>
+                and contract_signing_time like #{contractSigningTime}
+            </if>
+            and update_state != 'D'
+        </where>
+    </select>
+    <select id="directSummarize" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+        a.year,
+        a.customer,
+        a.contract_signing_time,
+        a.contract_img,
+        a.type_of_machine,
+        a.total_amount_mould,
+        a.mold_removal_acceptable,
+        a.mold_removal_received,
+        (round(a.mold_removal_acceptable-0,2) - round(a.mold_removal_received-0,2)) * b.field2 total_amount_not_received,
+        a.part_number,
+        a.die_number,
+        a.beneficiary_name,
+        a.payment_method,
+        a.remarks,
+        b.field1
+        from mold_contract_details a
+        INNER JOIN
+        (
+        select
+            n.year,
+            n.contract_signing_time,
+            n.customer,
+            n.type_of_machine,
+            ifnull(n.mold_removal_acceptable, 0),
+            ifnull(m.mold_removal_received, 0),
+
+            round(ifnull(n.total_amount_not_received,0),2) total_amount_not_received,
+
+            ( (round(ifnull(n.mold_removal_acceptable,0),2) - round(ifnull(m.mold_removal_received,0),2)) +
+            (round(ifnull(n.mold_stall_acceptable,0),2) - round(ifnull(m.mold_stall_received,0),2)) ) field1,
+
+            round(ifnull(n.total_amount_not_received,0),2) /
+            ( (round(ifnull(n.mold_removal_acceptable,0),2) - round(ifnull(m.mold_removal_received,0),2)) +
+            (round(ifnull(n.mold_stall_acceptable,0),2) - round(ifnull(m.mold_stall_received,0),2)) ) field2
+        from
+        (select
+        year,
+        contract_signing_time,
+        customer, type_of_machine,
+        sum(mold_removal_acceptable) mold_removal_acceptable,
+        sum(mold_stall_acceptable) mold_stall_acceptable,
+        sum(total_amount_not_received) total_amount_not_received
+        from
+        mold_contract_details
+        where update_state != 'D'
+        GROUP BY contract_signing_time, customer, type_of_machine) n
+
+        INNER JOIN
+
+        (select
+        contract_signing_time,
+        customer,
+        type_of_machine,
+        sum(mold_removal_received) mold_removal_received,
+        sum(mold_stall_received) mold_stall_received
+        from
+        mold_contract_details
+        where update_state != 'D'
+        GROUP BY contract_signing_time, customer, type_of_machine) m
+
+        on
+        n.contract_signing_time = m.contract_signing_time
+        and n.customer = m.customer
+        and n.type_of_machine = m.type_of_machine
+        and n.total_amount_not_received-0 > 0
+        and round(n.mold_removal_acceptable-0,2) != round(m.mold_removal_received-0,2)
+        ) b
+        on a.contract_signing_time = b.contract_signing_time
+        and a.customer = b.customer
+        and a.type_of_machine = b.type_of_machine
+        <if test="year != null and year != ''">
+            <bind name="year" value="'%' + year + '%'"/>
+            and a.year like #{year}
+        </if>
+        <if test="typeOfMachine != null and typeOfMachine != ''">
+            <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+            and a.type_of_machine like #{typeOfMachine}
+        </if>
+        <if test="partNumber != null and partNumber != ''">
+            <bind name="partNumber" value="'%' + partNumber + '%'"/>
+            and a.part_number like #{partNumber}
+        </if>
+        <if test="customer != null and customer != ''">
+            <bind name="customer" value="'%' + customer + '%'"/>
+            and a.customer like #{customer}
+        </if>
+        and a.update_state != 'D'
+        and a.remarks not like '%烂账%'
+        order by a.customer, a.type_of_Machine, a.contract_signing_time desc
+    </select>
+    <select id="dieStall" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+            a.year,
+            a.customer,
+            a.contract_signing_time,
+            a.contract_img,
+            a.type_of_machine,
+            a.mold_stall_acceptable,
+            a.mold_stall_received,
+            ((round(a.mold_stall_acceptable-0,2) - round(a.mold_stall_received-0,2)) * b.field2) total_amount_not_received,
+            a.batch_time,
+            a.mould_payment,
+            a.model_stall_ratio,
+            a.beneficiary_name,
+            a.part_number,
+            a.die_number,
+            a.remarks,
+            b.field1
+            from mold_contract_details a
+            INNER JOIN
+            (
+        select
+        n.year,
+        n.contract_signing_time,
+        n.customer,
+        n.type_of_machine,
+        ifnull(n.mold_stall_acceptable, 0),
+        ifnull(m.mold_stall_received, 0),
+
+        round(ifnull(n.total_amount_not_received,0),2) total_amount_not_received,
+
+        ( (round(ifnull(n.mold_removal_acceptable,0),2) - round(ifnull(m.mold_removal_received,0),2)) +
+        (round(ifnull(n.mold_stall_acceptable,0),2) - round(ifnull(m.mold_stall_received,0),2)) ) field1,
+
+        round(ifnull(n.total_amount_not_received,0),2) /
+        ( (round(ifnull(n.mold_removal_acceptable,0),2) - round(ifnull(m.mold_removal_received,0),2)) +
+        (round(ifnull(n.mold_stall_acceptable,0),2) - round(ifnull(m.mold_stall_received,0),2)) ) field2
+		from
+	(select
+		year,
+		contract_signing_time,
+		customer, type_of_machine,
+		sum(mold_removal_acceptable) mold_removal_acceptable,
+		sum(mold_stall_acceptable) mold_stall_acceptable,
+		sum(total_amount_not_received) total_amount_not_received
+		from
+		mold_contract_details
+		 where update_state != 'D'
+		GROUP BY contract_signing_time, customer, type_of_machine) n
+
+	INNER JOIN
+
+	(select
+		contract_signing_time,
+		customer,
+		type_of_machine,
+		sum(mold_removal_received) mold_removal_received,
+		sum(mold_stall_received) mold_stall_received
+		from
+		mold_contract_details
+		where update_state != 'D'
+		GROUP BY contract_signing_time, customer, type_of_machine) m
+
+        on
+         n.contract_signing_time = m.contract_signing_time
+        and n.customer = m.customer
+        and n.type_of_machine = m.type_of_machine
+        and n.total_amount_not_received-0 > 0
+        and round(n.mold_stall_acceptable-0,2) != round(m.mold_stall_received-0,2)
+        ) b
+        on a.contract_signing_time = b.contract_signing_time
+        and a.customer = b.customer
+        and a.type_of_machine = b.type_of_machine
+        <if test="year != null and year != ''">
+            <bind name="year" value="'%' + year + '%'"/>
+            and a.year like #{year}
+        </if>
+        <if test="typeOfMachine != null and typeOfMachine != ''">
+            <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+            and a.type_of_machine like #{typeOfMachine}
+        </if>
+        <if test="partNumber != null and partNumber != ''">
+            <bind name="partNumber" value="'%' + partNumber + '%'"/>
+            and a.part_number like #{partNumber}
+        </if>
+        <if test="customer != null and customer != ''">
+            <bind name="customer" value="'%' + customer + '%'"/>
+            and a.customer like #{customer}
+        </if>
+        and a.update_state != 'D'
+        and a.remarks not like '%烂账%'
+        order by a.customer, a.type_of_machine, a.contract_signing_time desc
+    </select>
+    <select id="outProcess" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+        m.year,
+        m.customer,
+        m.type_of_machine,
+        m.mould_payment,
+        m.beneficiary_name,
+        m.part_number,
+        m.die_number,
+        m.out_manufacturer,
+        m.out_contract_signing_time,
+        m.out_contract_img,
+        m.out_total_tax_included,
+        m.out_amount_paid,
+        m.out_amount_unpaid,
+        m.out_remarks
+        from
+        (select
+        year,
+        customer,
+        type_of_machine,
+        contract_signing_time,
+        mould_payment,
+        beneficiary_name,
+        update_time,
+        update_state,
+        part_number,
+        die_number,
+        out_manufacturer,
+        out_contract_signing_time,
+        out_contract_img,
+        out_total_tax_included,
+        out_amount_paid,
+        out_amount_unpaid,
+        out_remarks,
+        remarks
+        from mold_contract_details
+        where update_state != 'D'
+        and out_manufacturer != ''
+        and out_contract_signing_time != '') m
+        inner JOIN
+        (select
+        n.`year`,
+        n.customer,
+        n.contract_signing_time,
+        n.type_of_machine,
+        n.out_manufacturer,
+        n.out_contract_signing_time,
+
+        sum(n.out_total_tax_included) out_total_tax_included,
+        sum(n.out_amount_paid) out_amount_paid,
+        sum(n.out_amount_unpaid) out_amount_unpaid
+        from
+        (select
+        k.`year`,
+        k.customer,
+        k.contract_signing_time,
+        k.type_of_machine,
+        k.out_manufacturer,
+        k.out_contract_signing_time,
+        k.out_total_tax_included,
+        k.out_amount_paid,
+        k.out_amount_unpaid
+        from
+        (select
+        year,
+        customer,
+        contract_signing_time,
+        type_of_machine,
+        out_manufacturer,
+        out_contract_signing_time,
+        out_total_tax_included,
+        out_amount_paid,
+        out_amount_unpaid
+        from mold_contract_details
+        where update_state != 'D'
+        and out_manufacturer != ''
+        and out_contract_signing_time != '') k
+        inner JOIN
+        (select
+        year,
+        customer,
+        contract_signing_time,
+        type_of_machine,
+        out_manufacturer,
+        out_contract_signing_time
+        -- out_total_tax_included,
+        -- out_amount_paid,
+        -- out_amount_unpaid
+        from mold_contract_details
+        where update_state != 'D'
+        and out_manufacturer != ''
+        GROUP BY out_manufacturer, type_of_machine, out_contract_signing_time, customer
+        ORDER BY out_contract_signing_time) t
+        on
+        -- k.customer = t.customer
+        -- and k.contract_signing_time = t.contract_signing_time
+        k.type_of_machine = t.type_of_machine
+        and k.out_manufacturer = t.out_manufacturer
+        and k.out_contract_signing_time = t.out_contract_signing_time
+        ) n
+        GROUP BY n.customer, n.type_of_machine, n.out_contract_signing_time, n.out_manufacturer
+        HAVING (sum(n.out_amount_unpaid))-0 > 0
+        ORDER BY n.`year` ) n
+        on  m.customer = n.customer
+        and m.contract_signing_time = n.contract_signing_time
+        and m.type_of_machine = n.type_of_machine
+        and m.out_manufacturer = n.out_manufacturer
+        and m.out_contract_signing_time = n.out_contract_signing_time
+        <if test="year != null and year != ''">
+            <bind name="year" value="'%' + year + '%'"/>
+            and m.year like #{year}
+        </if>
+        <if test="typeOfMachine != null and typeOfMachine != ''">
+            <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+            and m.type_of_machine like #{typeOfMachine}
+        </if>
+        <if test="partNumber != null and partNumber != ''">
+            <bind name="partNumber" value="'%' + partNumber + '%'"/>
+            and m.part_number like #{partNumber}
+        </if>
+        <if test="customer != null and customer != ''">
+            <bind name="customer" value="'%' + customer + '%'"/>
+            and m.customer like #{customer}
+        </if>
+        and m.update_state != 'D'
+        and m.remarks not like '%烂账%'
+        order by m.customer, m.type_of_machine, m.out_manufacturer, m.out_contract_signing_time desc
+    </select>
+    <select id="assumedChange" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+        a.`year`,
+        a.customer,
+        a.type_of_machine,
+        a.beneficiary_name,
+        a.part_number,
+        a.die_number,
+        a.update_time,
+        a.update_state,
+        a.change_contract_signing_time,
+        a.change_contract_img,
+        a.change_part_number,
+        a.change_content,
+        a.change_tax_included,
+        a.change_amount_paid,
+        a.change_amount_unpaid
+        from (
+        select
+        `year`,
+        customer,
+        type_of_machine,
+        contract_signing_time,
+        beneficiary_name,
+        part_number,
+        die_number,
+        update_time,
+        update_state,
+        change_contract_signing_time,
+        change_contract_img,
+        change_part_number,
+        change_content,
+        change_tax_included,
+        change_amount_paid,
+        change_amount_unpaid,
+        remarks
+        from
+        mold_contract_details
+        where update_state != 'D' and change_contract_signing_time!=''
+        ) a
+        INNER JOIN
+        (select
+        `year`,
+        customer,
+        type_of_machine,
+        contract_signing_time,
+        -- payment_method,
+        -- part_number,
+        -- die_number,
+        change_contract_signing_time,
+        -- change_part_number,
+        -- change_content,
+        sum(change_tax_included) change_tax_included,
+        sum(change_amount_paid) change_amount_paid,
+        sum(change_amount_unpaid) change_amount_unpaid
+        from
+        mold_contract_details
+        where update_state != 'D' and change_contract_signing_time!=''
+        GROUP BY customer, type_of_machine, contract_signing_time, change_contract_signing_time
+        HAVING SUM(change_amount_unpaid)-0 > 0
+        ORDER BY `year`, change_contract_signing_time) m
+        on a.customer = m.customer
+        and a.type_of_machine = m.type_of_machine
+        and a.contract_signing_time = m.contract_signing_time
+        and a.change_contract_signing_time = m.change_contract_signing_time
+        <if test="year != null and year != ''">
+            <bind name="year" value="'%' + year + '%'"/>
+            and a.year like #{year}
+        </if>
+        <if test="typeOfMachine != null and typeOfMachine != ''">
+            <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+            and a.type_of_machine like #{typeOfMachine}
+        </if>
+        <if test="partNumber != null and partNumber != ''">
+            <bind name="partNumber" value="'%' + partNumber + '%'"/>
+            and a.part_number like #{partNumber}
+        </if>
+        <if test="customer != null and customer != ''">
+            <bind name="customer" value="'%' + customer + '%'"/>
+            and a.customer like #{customer}
+        </if>
+        and a.update_state != 'D'
+        and a.remarks not like '%烂账%'
+        order by a.customer, a.type_of_machine, a.change_contract_signing_time desc
+    </select>
+    <select id="dermatoglyph" parameterType="java.lang.String" resultType="com.carmold.bean.ContractDetails">
+        select
+        a.`year`,
+        a.customer,
+        a.type_of_machine,
+        a.beneficiary_name,
+        a.part_number,
+        a.die_number,
+        a.update_time,
+        a.update_state,
+        a.dermatoglyph_contract_signing_time,
+        a.dermatoglyph_contract_img,
+        a.dermatoglyph_part_number,
+        a.dermatoglyph_content,
+        a.dermatoglyph_tax_included,
+        a.dermatoglyph_amount_paid,
+        a.dermatoglyph_amount_unpaid
+        from (
+        select
+        `year`,
+        customer,
+        type_of_machine,
+        contract_signing_time,
+        beneficiary_name,
+        part_number,
+        die_number,
+        update_time,
+        update_state,
+        dermatoglyph_contract_signing_time,
+        dermatoglyph_contract_img,
+        dermatoglyph_part_number,
+        dermatoglyph_content,
+        dermatoglyph_tax_included,
+        dermatoglyph_amount_paid,
+        dermatoglyph_amount_unpaid,
+        remarks
+        from
+        mold_contract_details
+        where update_state != 'D' and dermatoglyph_contract_signing_time!=''
+        ) a
+        INNER JOIN
+        (select
+        `year`,
+        customer,
+        type_of_machine,
+        contract_signing_time,
+        -- payment_method,
+        -- part_number,
+        -- die_number,
+        dermatoglyph_contract_signing_time,
+        -- dermatoglyph_part_number,
+        -- dermatoglyph_content,
+        sum(dermatoglyph_tax_included) dermatoglyph_tax_included,
+        sum(dermatoglyph_amount_paid) dermatoglyph_amount_paid,
+        sum(dermatoglyph_amount_unpaid) dermatoglyph_amount_unpaid
+        from
+        mold_contract_details
+        where update_state != 'D' and dermatoglyph_contract_signing_time!=''
+        GROUP BY customer, type_of_machine, contract_signing_time, dermatoglyph_contract_signing_time
+        HAVING SUM(dermatoglyph_amount_unpaid)-0 > 0
+        ORDER BY `year`, dermatoglyph_contract_signing_time) m
+        on a.customer = m.customer
+        and a.type_of_machine = m.type_of_machine
+        and a.contract_signing_time = m.contract_signing_time
+        and a.dermatoglyph_contract_signing_time = m.dermatoglyph_contract_signing_time
+        <if test="year != null and year != ''">
+            <bind name="year" value="'%' + year + '%'"/>
+            and a.year like #{year}
+        </if>
+        <if test="typeOfMachine != null and typeOfMachine != ''">
+            <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+            and a.type_of_machine like #{typeOfMachine}
+        </if>
+        <if test="partNumber != null and partNumber != ''">
+            <bind name="partNumber" value="'%' + partNumber + '%'"/>
+            and a.part_number like #{partNumber}
+        </if>
+        <if test="customer != null and customer != ''">
+            <bind name="customer" value="'%' + customer + '%'"/>
+            and a.customer like #{customer}
+        </if>
+        and a.update_state != 'D'
+        and a.remarks not like '%烂账%'
+        order by a.customer, a.type_of_machine, a.dermatoglyph_contract_signing_time desc
+    </select>
+</mapper>

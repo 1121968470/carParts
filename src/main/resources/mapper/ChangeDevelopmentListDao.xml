@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carmold.dao.ChangeDevelopmentListDao">
+  <resultMap id="BaseResultMap" type="com.carmold.bean.ChangeDevelopmentList">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="model_name" jdbcType="VARCHAR" property="modelName" />
+    <result column="item_id" jdbcType="VARCHAR" property="itemId" />
+    <result column="mould_id" jdbcType="VARCHAR" property="mouldId" />
+    <result column="change_time_of_processing" jdbcType="VARCHAR" property="changeTimeOfProcessing" />
+    <result column="change_order_number" jdbcType="VARCHAR" property="changeOrderNumber" />
+    <result column="change_content" jdbcType="VARCHAR" property="changeContent" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="mould_director" jdbcType="VARCHAR" property="mouldDirector" />
+    <result column="material_formwork" jdbcType="VARCHAR" property="materialFormwork" />
+    <result column="material_internal_module" jdbcType="VARCHAR" property="materialInternalModule" />
+    <result column="cnc" jdbcType="VARCHAR" property="cnc" />
+    <result column="cnc_material" jdbcType="VARCHAR" property="cncMaterial" />
+    <result column="electric_spark" jdbcType="VARCHAR" property="electricSpark" />
+    <result column="thread_cutting" jdbcType="VARCHAR" property="threadCutting" />
+    <result column="polishing_hotrunner_lettering" jdbcType="VARCHAR" property="polishingHotrunnerLettering" />
+    <result column="parts" jdbcType="VARCHAR" property="parts" />
+    <result column="biting_flowers" jdbcType="VARCHAR" property="bitingFlowers" />
+    <result column="other_processing" jdbcType="VARCHAR" property="otherProcessing" />
+    <result column="repair_or_change" jdbcType="VARCHAR" property="repairOrChange" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_state" jdbcType="VARCHAR" property="updateState" />
+    <result column="total" jdbcType="VARCHAR" property="total" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+    <result column="field3" jdbcType="VARCHAR" property="field3" />
+    <result column="field4" jdbcType="VARCHAR" property="field4" />
+    <result column="field5" jdbcType="VARCHAR" property="field5" />
+    <result column="field6" jdbcType="VARCHAR" property="field6" />
+    <result column="field7" jdbcType="VARCHAR" property="field7" />
+    <result column="field8" jdbcType="VARCHAR" property="field8" />
+    <result column="field9" jdbcType="VARCHAR" property="field9" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, serial_number, `year`, customer, model, model_name, item_id, mould_id, change_time_of_processing,
+    change_order_number, change_content, remarks, mould_director, material_formwork,
+    material_internal_module, cnc, cnc_material, electric_spark, thread_cutting, polishing_hotrunner_lettering,
+    parts, biting_flowers, other_processing, repair_or_change, update_time, update_state,
+    total, `operator`, field1, field2, field3, field4, field5, field6, field7, field8,
+    field9
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mold_change_development_list
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mold_change_development_list
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.ChangeDevelopmentList" useGeneratedKeys="true">
+    insert into mold_change_development_list (serial_number, `year`, customer,
+      model, model_name, item_id,
+      mould_id, change_time_of_processing, change_order_number,
+      change_content, remarks, mould_director,
+      material_formwork, material_internal_module,
+      cnc, cnc_material, electric_spark,
+      thread_cutting, polishing_hotrunner_lettering,
+      parts, biting_flowers, other_processing,
+      repair_or_change, update_time, update_state,
+      total, `operator`, field1,
+      field2, field3, field4,
+      field5, field6, field7,
+      field8, field9)
+    values (#{serialNumber,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR},
+      #{model,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR},
+      #{mouldId,jdbcType=VARCHAR}, #{changeTimeOfProcessing,jdbcType=VARCHAR}, #{changeOrderNumber,jdbcType=VARCHAR},
+      #{changeContent,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{mouldDirector,jdbcType=VARCHAR},
+      #{materialFormwork,jdbcType=VARCHAR}, #{materialInternalModule,jdbcType=VARCHAR},
+      #{cnc,jdbcType=VARCHAR}, #{cncMaterial,jdbcType=VARCHAR}, #{electricSpark,jdbcType=VARCHAR},
+      #{threadCutting,jdbcType=VARCHAR}, #{polishingHotrunnerLettering,jdbcType=VARCHAR},
+      #{parts,jdbcType=VARCHAR}, #{bitingFlowers,jdbcType=VARCHAR}, #{otherProcessing,jdbcType=VARCHAR},
+      #{repairOrChange,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateState,jdbcType=VARCHAR},
+      #{total,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR},
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR},
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR}, #{field7,jdbcType=VARCHAR},
+      #{field8,jdbcType=VARCHAR}, #{field9,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.ChangeDevelopmentList" useGeneratedKeys="true">
+    insert into mold_change_development_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialNumber != null">
+        serial_number,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="customer != null">
+        customer,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="modelName != null">
+        model_name,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="mouldId != null">
+        mould_id,
+      </if>
+      <if test="changeTimeOfProcessing != null">
+        change_time_of_processing,
+      </if>
+      <if test="changeOrderNumber != null">
+        change_order_number,
+      </if>
+      <if test="changeContent != null">
+        change_content,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="mouldDirector != null">
+        mould_director,
+      </if>
+      <if test="materialFormwork != null">
+        material_formwork,
+      </if>
+      <if test="materialInternalModule != null">
+        material_internal_module,
+      </if>
+      <if test="cnc != null">
+        cnc,
+      </if>
+      <if test="cncMaterial != null">
+        cnc_material,
+      </if>
+      <if test="electricSpark != null">
+        electric_spark,
+      </if>
+      <if test="threadCutting != null">
+        thread_cutting,
+      </if>
+      <if test="polishingHotrunnerLettering != null">
+        polishing_hotrunner_lettering,
+      </if>
+      <if test="parts != null">
+        parts,
+      </if>
+      <if test="bitingFlowers != null">
+        biting_flowers,
+      </if>
+      <if test="otherProcessing != null">
+        other_processing,
+      </if>
+      <if test="repairOrChange != null">
+        repair_or_change,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateState != null">
+        update_state,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="operator != null">
+        `operator`,
+      </if>
+      <if test="field1 != null">
+        field1,
+      </if>
+      <if test="field2 != null">
+        field2,
+      </if>
+      <if test="field3 != null">
+        field3,
+      </if>
+      <if test="field4 != null">
+        field4,
+      </if>
+      <if test="field5 != null">
+        field5,
+      </if>
+      <if test="field6 != null">
+        field6,
+      </if>
+      <if test="field7 != null">
+        field7,
+      </if>
+      <if test="field8 != null">
+        field8,
+      </if>
+      <if test="field9 != null">
+        field9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null">
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldId != null">
+        #{mouldId,jdbcType=VARCHAR},
+      </if>
+      <if test="changeTimeOfProcessing != null">
+        #{changeTimeOfProcessing,jdbcType=VARCHAR},
+      </if>
+      <if test="changeOrderNumber != null">
+        #{changeOrderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="changeContent != null">
+        #{changeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldDirector != null">
+        #{mouldDirector,jdbcType=VARCHAR},
+      </if>
+      <if test="materialFormwork != null">
+        #{materialFormwork,jdbcType=VARCHAR},
+      </if>
+      <if test="materialInternalModule != null">
+        #{materialInternalModule,jdbcType=VARCHAR},
+      </if>
+      <if test="cnc != null">
+        #{cnc,jdbcType=VARCHAR},
+      </if>
+      <if test="cncMaterial != null">
+        #{cncMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="electricSpark != null">
+        #{electricSpark,jdbcType=VARCHAR},
+      </if>
+      <if test="threadCutting != null">
+        #{threadCutting,jdbcType=VARCHAR},
+      </if>
+      <if test="polishingHotrunnerLettering != null">
+        #{polishingHotrunnerLettering,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null">
+        #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="bitingFlowers != null">
+        #{bitingFlowers,jdbcType=VARCHAR},
+      </if>
+      <if test="otherProcessing != null">
+        #{otherProcessing,jdbcType=VARCHAR},
+      </if>
+      <if test="repairOrChange != null">
+        #{repairOrChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateState != null">
+        #{updateState,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=VARCHAR},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=VARCHAR},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carmold.bean.ChangeDevelopmentList">
+    update mold_change_development_list
+    <set>
+      <if test="serialNumber != null">
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null">
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        model_name = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null">
+        item_id = #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldId != null">
+        mould_id = #{mouldId,jdbcType=VARCHAR},
+      </if>
+      <if test="changeTimeOfProcessing != null">
+        change_time_of_processing = #{changeTimeOfProcessing,jdbcType=VARCHAR},
+      </if>
+      <if test="changeOrderNumber != null">
+        change_order_number = #{changeOrderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="changeContent != null">
+        change_content = #{changeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldDirector != null">
+        mould_director = #{mouldDirector,jdbcType=VARCHAR},
+      </if>
+      <if test="materialFormwork != null">
+        material_formwork = #{materialFormwork,jdbcType=VARCHAR},
+      </if>
+      <if test="materialInternalModule != null">
+        material_internal_module = #{materialInternalModule,jdbcType=VARCHAR},
+      </if>
+      <if test="cnc != null">
+        cnc = #{cnc,jdbcType=VARCHAR},
+      </if>
+      <if test="cncMaterial != null">
+        cnc_material = #{cncMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="electricSpark != null">
+        electric_spark = #{electricSpark,jdbcType=VARCHAR},
+      </if>
+      <if test="threadCutting != null">
+        thread_cutting = #{threadCutting,jdbcType=VARCHAR},
+      </if>
+      <if test="polishingHotrunnerLettering != null">
+        polishing_hotrunner_lettering = #{polishingHotrunnerLettering,jdbcType=VARCHAR},
+      </if>
+      <if test="parts != null">
+        parts = #{parts,jdbcType=VARCHAR},
+      </if>
+      <if test="bitingFlowers != null">
+        biting_flowers = #{bitingFlowers,jdbcType=VARCHAR},
+      </if>
+      <if test="otherProcessing != null">
+        other_processing = #{otherProcessing,jdbcType=VARCHAR},
+      </if>
+      <if test="repairOrChange != null">
+        repair_or_change = #{repairOrChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateState != null">
+        update_state = #{updateState,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        total = #{total,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        `operator` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        field1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        field2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        field3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        field4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        field5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        field6 = #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        field7 = #{field7,jdbcType=VARCHAR},
+      </if>
+      <if test="field8 != null">
+        field8 = #{field8,jdbcType=VARCHAR},
+      </if>
+      <if test="field9 != null">
+        field9 = #{field9,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carmold.bean.ChangeDevelopmentList">
+    update mold_change_development_list
+    set serial_number = #{serialNumber,jdbcType=VARCHAR},
+      `year` = #{year,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      model_name = #{modelName,jdbcType=VARCHAR},
+      item_id = #{itemId,jdbcType=VARCHAR},
+      mould_id = #{mouldId,jdbcType=VARCHAR},
+      change_time_of_processing = #{changeTimeOfProcessing,jdbcType=VARCHAR},
+      change_order_number = #{changeOrderNumber,jdbcType=VARCHAR},
+      change_content = #{changeContent,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      mould_director = #{mouldDirector,jdbcType=VARCHAR},
+      material_formwork = #{materialFormwork,jdbcType=VARCHAR},
+      material_internal_module = #{materialInternalModule,jdbcType=VARCHAR},
+      cnc = #{cnc,jdbcType=VARCHAR},
+      cnc_material = #{cncMaterial,jdbcType=VARCHAR},
+      electric_spark = #{electricSpark,jdbcType=VARCHAR},
+      thread_cutting = #{threadCutting,jdbcType=VARCHAR},
+      polishing_hotrunner_lettering = #{polishingHotrunnerLettering,jdbcType=VARCHAR},
+      parts = #{parts,jdbcType=VARCHAR},
+      biting_flowers = #{bitingFlowers,jdbcType=VARCHAR},
+      other_processing = #{otherProcessing,jdbcType=VARCHAR},
+      repair_or_change = #{repairOrChange,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_state = #{updateState,jdbcType=VARCHAR},
+      total = #{total,jdbcType=VARCHAR},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      field1 = #{field1,jdbcType=VARCHAR},
+      field2 = #{field2,jdbcType=VARCHAR},
+      field3 = #{field3,jdbcType=VARCHAR},
+      field4 = #{field4,jdbcType=VARCHAR},
+      field5 = #{field5,jdbcType=VARCHAR},
+      field6 = #{field6,jdbcType=VARCHAR},
+      field7 = #{field7,jdbcType=VARCHAR},
+      field8 = #{field8,jdbcType=VARCHAR},
+      field9 = #{field9,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="list" parameterType="java.lang.String" resultType="com.carmold.bean.ChangeDevelopmentList">
+    select * from mold_change_development_list
+    <where>
+      <if test="type != null and type != ''">
+        and repair_or_change = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="year != null and year != ''">
+        <bind name="year" value="'%' + year + '%'"/>
+        and year like #{year}
+      </if>
+      <if test="model != null and model != ''">
+        <bind name="model" value="'%' + model + '%'"/>
+        and model like #{model}
+      </if>
+      <if test="itemId != null and itemId != ''">
+        <bind name="itemId" value="'%' + itemId + '%'"/>
+        and item_id like #{itemId}
+      </if>
+      <if test="customer != null and customer != ''">
+        <bind name="customer" value="'%' + customer + '%'"/>
+        and customer like #{customer}
+      </if>
+      <if test="repairOrChange != null and repairOrChange != ''">
+        and repair_or_change = #{repairOrChange,jdbcType=VARCHAR}
+      </if>
+      and update_state != 'D'
+    </where>
+    order by update_time desc
+  </select>
+</mapper>

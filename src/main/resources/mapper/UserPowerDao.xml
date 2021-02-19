@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carmold.dao.UserPowerDao">
+  <resultMap id="BaseResultMap" type="com.carmold.bean.UserPower">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_power" jdbcType="VARCHAR" property="userPower" />
+    <result column="power_name" jdbcType="VARCHAR" property="powerName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_power, power_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_power
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_power
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.UserPower" useGeneratedKeys="true">
+    insert into user_power (user_power, power_name)
+    values (#{userPower,jdbcType=VARCHAR}, #{powerName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.UserPower" useGeneratedKeys="true">
+    insert into user_power
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userPower != null">
+        user_power,
+      </if>
+      <if test="powerName != null">
+        power_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userPower != null">
+        #{userPower,jdbcType=VARCHAR},
+      </if>
+      <if test="powerName != null">
+        #{powerName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carmold.bean.UserPower">
+    update user_power
+    <set>
+      <if test="userPower != null">
+        user_power = #{userPower,jdbcType=VARCHAR},
+      </if>
+      <if test="powerName != null">
+        power_name = #{powerName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carmold.bean.UserPower">
+    update user_power
+    set user_power = #{userPower,jdbcType=VARCHAR},
+      power_name = #{powerName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="list" parameterType="string"  resultType="com.carmold.bean.UserPower">
+    select * from user_power
+  </select>
+</mapper>

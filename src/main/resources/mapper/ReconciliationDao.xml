@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carmold.dao.ReconciliationDao">
+  <resultMap id="BaseResultMap" type="com.carmold.bean.Reconciliation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="odd_numbers" jdbcType="VARCHAR" property="oddNumbers" />
+    <result column="customer" jdbcType="VARCHAR" property="customer" />
+    <result column="type_of_machine" jdbcType="VARCHAR" property="typeOfMachine" />
+    <result column="mold_name" jdbcType="VARCHAR" property="moldName" />
+    <result column="mold_number" jdbcType="VARCHAR" property="moldNumber" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="specifications" jdbcType="VARCHAR" property="specifications" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="working_hours" jdbcType="VARCHAR" property="workingHours" />
+    <result column="unit_price" jdbcType="VARCHAR" property="unitPrice" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="nc_price" jdbcType="VARCHAR" property="ncPrice" />
+    <result column="material_cost" jdbcType="VARCHAR" property="materialCost" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_state" jdbcType="VARCHAR" property="updateState" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+    <result column="field3" jdbcType="VARCHAR" property="field3" />
+    <result column="field4" jdbcType="VARCHAR" property="field4" />
+    <result column="field5" jdbcType="VARCHAR" property="field5" />
+    <result column="field6" jdbcType="VARCHAR" property="field6" />
+    <result column="field7" jdbcType="VARCHAR" property="field7" />
+    <result column="field8" jdbcType="VARCHAR" property="field8" />
+    <result column="field9" jdbcType="VARCHAR" property="field9" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, company_name, `month`, `date`, odd_numbers, customer, type_of_machine, mold_name, 
+    mold_number, product_name, specifications, unit, `number`, working_hours, unit_price, 
+    area, nc_price, material_cost, price, remarks, `year`, update_time, update_state, 
+    `operator`, field1, field2, field3, field4, field5, field6, field7, field8, field9
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mold_reconciliation
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mold_reconciliation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.Reconciliation" useGeneratedKeys="true">
+    insert into mold_reconciliation (company_name, `month`, `date`, 
+      odd_numbers, customer, type_of_machine, 
+      mold_name, mold_number, product_name, 
+      specifications, unit, `number`, 
+      working_hours, unit_price, area, 
+      nc_price, material_cost, price, 
+      remarks, `year`, update_time, 
+      update_state, `operator`, field1, 
+      field2, field3, field4, 
+      field5, field6, field7, 
+      field8, field9)
+    values (#{companyName,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, 
+      #{oddNumbers,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, #{typeOfMachine,jdbcType=VARCHAR}, 
+      #{moldName,jdbcType=VARCHAR}, #{moldNumber,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{specifications,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
+      #{workingHours,jdbcType=VARCHAR}, #{unitPrice,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{ncPrice,jdbcType=VARCHAR}, #{materialCost,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateState,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, 
+      #{field5,jdbcType=VARCHAR}, #{field6,jdbcType=VARCHAR}, #{field7,jdbcType=VARCHAR}, 
+      #{field8,jdbcType=VARCHAR}, #{field9,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.carmold.bean.Reconciliation" useGeneratedKeys="true">
+    insert into mold_reconciliation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="month != null">
+        `month`,
+      </if>
+      <if test="date != null">
+        `date`,
+      </if>
+      <if test="oddNumbers != null">
+        odd_numbers,
+      </if>
+      <if test="customer != null">
+        customer,
+      </if>
+      <if test="typeOfMachine != null">
+        type_of_machine,
+      </if>
+      <if test="moldName != null">
+        mold_name,
+      </if>
+      <if test="moldNumber != null">
+        mold_number,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="specifications != null">
+        specifications,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="number != null">
+        `number`,
+      </if>
+      <if test="workingHours != null">
+        working_hours,
+      </if>
+      <if test="unitPrice != null">
+        unit_price,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="ncPrice != null">
+        nc_price,
+      </if>
+      <if test="materialCost != null">
+        material_cost,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateState != null">
+        update_state,
+      </if>
+      <if test="operator != null">
+        `operator`,
+      </if>
+      <if test="field1 != null">
+        field1,
+      </if>
+      <if test="field2 != null">
+        field2,
+      </if>
+      <if test="field3 != null">
+        field3,
+      </if>
+      <if test="field4 != null">
+        field4,
+      </if>
+      <if test="field5 != null">
+        field5,
+      </if>
+      <if test="field6 != null">
+        field6,
+      </if>
+      <if test="field7 != null">
+        field7,
+      </if>
+      <if test="field8 != null">
+        field8,
+      </if>
+      <if test="field9 != null">
+        field9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="oddNumbers != null">
+        #{oddNumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null">
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="typeOfMachine != null">
+        #{typeOfMachine,jdbcType=VARCHAR},
+      </if>
+      <if test="moldName != null">
+        #{moldName,jdbcType=VARCHAR},
+      </if>
+      <if test="moldNumber != null">
+        #{moldNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null">
+        #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="workingHours != null">
+        #{workingHours,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPrice != null">
+        #{unitPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="ncPrice != null">
+        #{ncPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="materialCost != null">
+        #{materialCost,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateState != null">
+        #{updateState,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        #{field7,jdbcType=VARCHAR},
+      </if>
+      <if test="field8 != null">
+        #{field8,jdbcType=VARCHAR},
+      </if>
+      <if test="field9 != null">
+        #{field9,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carmold.bean.Reconciliation">
+    update mold_reconciliation
+    <set>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        `month` = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        `date` = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="oddNumbers != null">
+        odd_numbers = #{oddNumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null">
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="typeOfMachine != null">
+        type_of_machine = #{typeOfMachine,jdbcType=VARCHAR},
+      </if>
+      <if test="moldName != null">
+        mold_name = #{moldName,jdbcType=VARCHAR},
+      </if>
+      <if test="moldNumber != null">
+        mold_number = #{moldNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null">
+        specifications = #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        `number` = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="workingHours != null">
+        working_hours = #{workingHours,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPrice != null">
+        unit_price = #{unitPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="ncPrice != null">
+        nc_price = #{ncPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="materialCost != null">
+        material_cost = #{materialCost,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateState != null">
+        update_state = #{updateState,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        `operator` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null">
+        field1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        field2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        field3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        field4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        field5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="field6 != null">
+        field6 = #{field6,jdbcType=VARCHAR},
+      </if>
+      <if test="field7 != null">
+        field7 = #{field7,jdbcType=VARCHAR},
+      </if>
+      <if test="field8 != null">
+        field8 = #{field8,jdbcType=VARCHAR},
+      </if>
+      <if test="field9 != null">
+        field9 = #{field9,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carmold.bean.Reconciliation">
+    update mold_reconciliation
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      `month` = #{month,jdbcType=VARCHAR},
+      `date` = #{date,jdbcType=VARCHAR},
+      odd_numbers = #{oddNumbers,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      type_of_machine = #{typeOfMachine,jdbcType=VARCHAR},
+      mold_name = #{moldName,jdbcType=VARCHAR},
+      mold_number = #{moldNumber,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      specifications = #{specifications,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      `number` = #{number,jdbcType=VARCHAR},
+      working_hours = #{workingHours,jdbcType=VARCHAR},
+      unit_price = #{unitPrice,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      nc_price = #{ncPrice,jdbcType=VARCHAR},
+      material_cost = #{materialCost,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      `year` = #{year,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_state = #{updateState,jdbcType=VARCHAR},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      field1 = #{field1,jdbcType=VARCHAR},
+      field2 = #{field2,jdbcType=VARCHAR},
+      field3 = #{field3,jdbcType=VARCHAR},
+      field4 = #{field4,jdbcType=VARCHAR},
+      field5 = #{field5,jdbcType=VARCHAR},
+      field6 = #{field6,jdbcType=VARCHAR},
+      field7 = #{field7,jdbcType=VARCHAR},
+      field8 = #{field8,jdbcType=VARCHAR},
+      field9 = #{field9,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="list" parameterType="string" resultType="com.carmold.bean.Reconciliation">
+    select * from mold_reconciliation
+    <where>
+      <if test="year != null and year != ''">
+        <bind name="year" value="'%' + year + '%'"/>
+        and year like #{year}
+      </if>
+      <if test="month != null and month != ''">
+        <bind name="month" value="'%' + month + '%'"/>
+        and month like #{month}
+      </if>
+      <if test="companyName != null and companyName != ''">
+        <bind name="companyName" value="'%' + companyName + '%'"/>
+        and company_name like #{companyName}
+      </if>
+      <if test="typeOfMachine != null and typeOfMachine != ''">
+        <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+        and type_of_machine like #{typeOfMachine}
+      </if>
+      <if test="customer != null and customer != ''">
+        <bind name="customer" value="'%' + customer + '%'"/>
+        and customer like #{customer}
+      </if>
+      and update_state != 'D'
+    </where>
+    order by update_time desc
+  </select>
+  <select id="listReport" parameterType="string" resultType="com.carmold.bean.ReconciliationReport">
+    select * from mold_reconciliation
+    <where>
+      <if test="year != null and year != ''">
+        <bind name="year" value="'%' + year + '%'"/>
+        and year like #{year}
+      </if>
+      <if test="month != null and month != ''">
+        <bind name="month" value="'%' + month + '%'"/>
+        and month like #{month}
+      </if>
+      <if test="companyName != null and companyName != ''">
+        <bind name="companyName" value="'%' + companyName + '%'"/>
+        and company_name like #{companyName}
+      </if>
+      <if test="typeOfMachine != null and typeOfMachine != ''">
+        <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+        and type_of_machine like #{typeOfMachine}
+      </if>
+      <if test="customer != null and customer != ''">
+        <bind name="customer" value="'%' + customer + '%'"/>
+        and customer like #{customer}
+      </if>
+      and update_state != 'D'
+    </where>
+    order by update_time desc
+  </select>
+  <select id="listTotal" parameterType="string" resultType="com.carmold.bean.Reconciliation">
+    select SUM(nc_price) nc_price,
+    SUM(material_cost) material_cost,
+    SUM(price) price from mold_reconciliation
+    <where>
+      <if test="year != null and year != ''">
+        <bind name="year" value="'%' + year + '%'"/>
+        and year like #{year}
+      </if>
+      <if test="month != null and month != ''">
+        <bind name="month" value="'%' + month + '%'"/>
+        and month like #{month}
+      </if>
+      <if test="companyName != null and companyName != ''">
+        <bind name="companyName" value="'%' + companyName + '%'"/>
+        and company_name like #{companyName}
+      </if>
+      <if test="typeOfMachine != null and typeOfMachine != ''">
+        <bind name="typeOfMachine" value="'%' + typeOfMachine + '%'"/>
+        and type_of_machine like #{typeOfMachine}
+      </if>
+      <if test="customer != null and customer != ''">
+        <bind name="customer" value="'%' + customer + '%'"/>
+        and customer like #{customer}
+      </if>
+      and update_state != 'D'
+    </where>
+  </select>
+</mapper>

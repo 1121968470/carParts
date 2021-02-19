@@ -1,0 +1,24 @@
+{
+  "RECORDS": [
+    {
+      "月份":"month",
+      "日期":"date",
+      "单号":"oddNumbers",
+      "客户":"customer",
+      "机种":"typeOfMachine",
+      "模具名称":"moldName",
+      "模具编号":"moldNumber",
+      "品名":"productName",
+      "规格":"specifications",
+      "单位":"unit",
+      "数量":"number",
+      "工时":"workingHours",
+      "单价":"unitPrice",
+      "面积": "area",
+      "NC金额（元）":"ncPrice",
+      "材料费":"materialCost",
+      "金额":"price",
+      "备注":"remarks"
+    }
+  ]
+}
